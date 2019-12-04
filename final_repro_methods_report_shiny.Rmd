@@ -10,17 +10,23 @@ runtime: shiny
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-setwd("~/Desktop/Repro_Methods_Final_Pipeline/Repro_Methods_Project/")
+
+#UNCOMMENT BEFORE TESTING/SUBMITTING!!!
+##packrat::restore()
+
+#what to do with working directories?? can this just stay commented?
+#setwd("~/Desktop/Repro_Methods_Final_Pipeline/Repro_Methods_Project/")
 source("pred_nav_analysis.R")
 
 #load packages
 library(ggplot2)
 library(tidyverse)
 library(gridExtra)
+install.packages('progress')
 
 #setwd back to the main directory
-setwd("~/Desktop/Repro_Methods_Final_Pipeline/")
-
+baseDir<-getwd()
+setwd(baseDir)
 ```
 
 Memory for our previous experiences does not merely allow us to reflect on our past, but can faciliate anticipation of the future. Memory for sequential structue in the surrounding world allows us to predict what might be coming up next. For example, when navigating a familiar route (i.e from work to the grocery store) we can predict which upcoming locations we will likely encounter (i.e. a favourite restaurant on the next block). Such a prospective use of memory is inherently adaptive: flexible use of past experiences enables preparation for the future, thus minimizing the potential for surprise.

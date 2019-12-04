@@ -7,7 +7,10 @@ library(binhf)
 
 
 #set working directory
-baseDir<-"~/Desktop/Repro_Methods_Final_Pipeline/data/"
+setwd("~/Desktop/Repro_Methods_Final_Pipeline/Repro_Methods_Project/")
+baseDir<-"~/Desktop/Repro_Methods_Final_Pipeline/Repro_Methods_Project/"
+baseDir<-getwd()
+print(baseDir)
 setwd(baseDir)
 
 #############################################################
@@ -15,11 +18,11 @@ setwd(baseDir)
 #############################################################
 
 #get a list of subject folders
-setwd(paste0(baseDir,'/subs'))
+setwd(paste0(baseDir,'/data/subs'))
 subs<-list.files()
 #loop through and read in data
 for (s in subs){
-  setwd(paste0(baseDir,'/subs/',s))
+  setwd(paste0(baseDir,'/data/subs/',s))
   Pred_Files<-list.files(pattern=c("Prediction"))
   if(s==subs[1]){
     pred_data<-read.csv(Pred_Files)
@@ -372,13 +375,13 @@ colMeans(inv_eff_pred_time)
 ########################################
 
 #get a list of subject folders
-setwd(paste0(baseDir,'/subs'))
+setwd(paste0(baseDir,'/data/subs'))
 subs<-list.files()
 print(subs)
 #loop through and read in data
 for (s in subs){
   print(s)
-  setwd(paste0(baseDir,'/subs/',s))
+  setwd(paste0(baseDir,'/data/subs/',s))
   Int_Files<-list.files(pattern=c("Integration"))
   if(s==subs[1]){
     int_data<-read.csv(Int_Files)
