@@ -1,0 +1,74 @@
+---
+title: "Flexible Multi-Step Prediction and Integration During Navigation"
+author: "Hannah Tarder-Stoll"
+date: "December 6th, 2018"
+output: 
+  word_document:
+    reference_docx: report_reference.docx 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+setwd("~/Desktop/Repro_Methods_Final_Pipeline/Repro_Methods_Project/")
+source("pred_nav_analysis.R")
+
+#load packages
+library(ggplot2)
+library(tidyverse)
+library(gridExtra)
+
+#setwd back to the main directory
+setwd("~/Desktop/Repro_Methods_Final_Pipeline/")
+
+```
+
+Memory for our previous experiences does not merely allow us to reflect on our past, but can faciliate anticipation of the future. Memory for sequential structue in the surrounding world allows us to predict what might be coming up next. For example, when navigating a familiar route (i.e from work to the grocery store) we can predict which upcoming locations we will likely encounter (i.e. a favourite restaurant on the next block). Such a prospective use of memory is inherently adaptive: flexible use of past experiences enables preparation for the future, thus minimizing the potential for surprise.
+
+Intriguingly, the same neural mechanisms which underlie episodic memory have been linked to our ability to predict and simulate future events. Indeed, hippocampal cells which code for a specific location in space have been shown to fire prospectively in rodents, representing upcoming locations during naviation of a well learned environment (Johnson & Redish, 2007, MORE). Similarly, in the human hippocampus, sequence learning  is reflected in patterns of fMRI activity: after learning, representational similarity increases for items N and N+1 items in a sequence. Crucially, this increase in similarity was asymmetrical, such that N becomes more similar to N+1, reflecting prediction of upcoming items in the sequence (Schapiro et al., 2012). Bridging these convergent findings in rodent spatial navigation and human sequence learning, one study mesured patterns of fMRI activity during virtual navigation of a well-learned enivonrment. When participants prospectively planned their route to a goal location, patterns of activity in the hippocampus, and other regions such as the orbitofrontal cortext (OFC), coded for the future goal, as opposed to the current location on the route. 
+
+Taken together, these studies indicate that the hippocampus uses memory to flexibly predict future trajectories. However, most of these studies have only investigated prediction at short time scales (i.e. one- or two-step sequences). How do we flexibly represent, and use, predictions at a range of timescales? Further, myriad regions in addition to the hippocampus have been shown to prospectively represent future trajectories. It currently remains unknown how multiple brain regions contribute to prediction along a range of timescales. 
+
+An intriguing possibility comes from the literature on reprsentational hierarchies. It has been theorized that, in order to represnt events at both fine- and corase-grained levels of detail simultaneously, the brain pocesses information along a cortical hierarchy: short timescales are represented in posterior regions (such as visual cortex and posterior parietal cortext), and long timescales are represented in anterior regions (such as orbitofrontal cortex and medial prefrontal cortex). A similar posterior-anterior hierarchy has been suggested to exist along the hippocampal long axis. Although such processing hierarchies have been studied for retrospective information that is integrated over the past, it is possible that the same hierarchy represents predictions along multiple timescales. Therefore, the large number of brain regions implicated in predicting the future may in fact have a hierarchical strucutre, scaling with the amount of prediction along the posterior-anterior hierarchy. 
+
+## talk about Wimmer and Buchel and Brunec and Mommenejad, how do we flexibly represent predicitons? do different predictions come on line at different timescales?
+## talk about integration of paths -- how are predictions updated after our enivronments are updated with new information?
+
+The current study seeks to determine (1) whether predictions generated along a range of timescales 
+
+
+
+  
+## Method
+  
+  `r round(mean(acc$mean_acc), digits =2)` 
+
+```{r}
+knitr::include_graphics('schematic.png')
+```
+
+```{r, out.width = "1100px", echo=FALSE}
+#how to make it an appropriate size?
+#plots for the prediction portion of the experiment
+acc_plot #accuracy for each participant for prediction
+plot_path #accuracy for green/blue paths
+plot_distance #accuracy for correct distance into future
+plot_distance_time #accuracy for correct dist x prediction time - THIS IS THE RIGHT SIZE, DO THIS FOR THE INT PLOTS
+
+```
+
+
+```{r, out.width = "1000px", echo=FALSE}
+#plots for the integration portion
+acc_int_plot #accuracy for integration for each participant
+plot_run_int #accuracy for runs (spag plot)
+plot_int_noInt #int vs no int cond
+plot_int_noInt_run #int vs no int by run
+
+plot_distance_run_int
+plot_distance_int
+```
+
+```{r, echo = FALSE}
+#shiny plot to look at plots by run
+```
+
