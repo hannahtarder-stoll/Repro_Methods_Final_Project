@@ -12,10 +12,11 @@ runtime: shiny
 knitr::opts_chunk$set(echo = TRUE)
 
 #UNCOMMENT BEFORE TESTING/SUBMITTING!!!
-##packrat::restore()
+packrat::restore()
+baseDir<-getwd()
 
 #what to do with working directories?? can this just stay commented?
-setwd("~/Desktop/Repro_Methods_Final_Pipeline/Repro_Methods_Project/")
+#setwd("~/Desktop/Repro_Methods_Final_Pipeline/Repro_Methods_Project/")
 source("pred_nav_analysis.R")
 
 #load packages
@@ -25,7 +26,6 @@ library(gridExtra)
 install.packages('progress')
 
 #setwd back to the main directory
-baseDir<-getwd()
 setwd(baseDir)
 ```
 

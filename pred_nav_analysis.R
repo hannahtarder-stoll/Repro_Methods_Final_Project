@@ -7,8 +7,8 @@ library(binhf)
 
 
 #set working directory
-setwd("~/Desktop/Repro_Methods_Final_Pipeline/Repro_Methods_Project/")
-baseDir<-"~/Desktop/Repro_Methods_Final_Pipeline/Repro_Methods_Project/"
+#setwd("~/Desktop/Repro_Methods_Final_Pipeline/Repro_Methods_Project/")
+#baseDir<-"~/Desktop/Repro_Methods_Final_Pipeline/Repro_Methods_Project/"
 baseDir<-getwd()
 print(baseDir)
 setwd(baseDir)
