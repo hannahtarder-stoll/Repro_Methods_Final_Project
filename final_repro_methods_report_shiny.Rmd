@@ -9,10 +9,12 @@ runtime: shiny
 ---
 
 ```{r setup, include=FALSE}
+packrat::restore()
+
 knitr::opts_chunk$set(echo = TRUE)
 
 #UNCOMMENT BEFORE TESTING/SUBMITTING!!!
-packrat::restore()
+
 baseDir<-getwd()
 
 #what to do with working directories?? can this just stay commented?
