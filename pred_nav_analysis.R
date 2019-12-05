@@ -586,7 +586,7 @@ int_info_data<-data.frame(Q = NA, A = NA, A_next = NA, path = NA, participant = 
 for (sub in unique(order_only$subject)){
   temp<-subset(order_only, subject == sub)
   #this gets the room numbers and paths of the "int bridges" for each participant
-  int_info<-read.csv(paste0("~/Dropbox/PredictionNavigation/randScheme/", sub, "_IntInfo.csv"), header = TRUE)
+  int_info<-read.csv(paste0(baseDir, "/data/", sub, "_IntInfo.csv"), header = TRUE)
   int_info$participant<-sub
   int_info_data<-rbind(int_info_data, int_info)
   #gets the path order for each of teh 4 original sequence for each participant
