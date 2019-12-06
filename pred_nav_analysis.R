@@ -155,6 +155,10 @@ unique(pred_data$time_bin)
 
 acc_pred_time<-cast(pred_data, participant~time_bin, mean, value="acc", na.rm=T)
 print(acc_pred_time)
+colnames(acc_pred_time)[colnames(acc_pred_time)==5] <- "five"
+colnames(acc_pred_time)[colnames(acc_pred_time)==6] <- "six"
+colnames(acc_pred_time)[colnames(acc_pred_time)==7] <- "seven"
+colnames(acc_pred_time)[colnames(acc_pred_time)==8] <- "eight"
 colMeans(acc_pred_time, na.rm = T)
 sd(acc_pred_time$`8`)
 
@@ -218,6 +222,10 @@ for (row in 1:nrow(pred_data)){
 
 acc_future<-cast(pred_data, participant~cor_distance, mean, value="acc", na.rm=T, subset = (participant != 2))
 print(acc_future)
+colnames(acc_future)[colnames(acc_future)==1] <- "one"
+colnames(acc_future)[colnames(acc_future)==2] <- "two"
+colnames(acc_future)[colnames(acc_future)==3] <- "three"
+colnames(acc_future)[colnames(acc_future)==4] <- "four"
 colMeans(acc_future, na.rm = T)
 sd(acc_future$`4`)
 
@@ -248,11 +256,11 @@ plot_distance <- ggplot() +
 plot_distance
 
 
-acc_future<-cast(pred_data, participant~cor_distance, mean, value="acc", na.rm=T, subset = (participant != 2))
-print(acc_future)
-#acc_future<-subset(acc_future, participant != "14")
-colMeans(acc_future, na.rm = T)
-sd(acc_future$`4`)
+# acc_future<-cast(pred_data, participant~cor_distance, mean, value="acc", na.rm=T, subset = (participant != 2))
+# print(acc_future)
+# #acc_future<-subset(acc_future, participant != "14")
+# colMeans(acc_future, na.rm = T)
+# sd(acc_future$`4`)
 
 #plot it
 #do this for inverse efficiency
@@ -293,8 +301,13 @@ colMeans(acc_future_time, na.rm=T)
 
 acc_time_four<-cast(pred_data, participant~time_bin, mean, value="acc", na.rm=T, subset = (cor_distance == 4))
 acc_time_four
+colnames(acc_time_four)[colnames(acc_time_four)==5] <- "five"
+colnames(acc_time_four)[colnames(acc_time_four)==6] <- "six"
+colnames(acc_time_four)[colnames(acc_time_four)==7] <- "seven"
+colnames(acc_time_four)[colnames(acc_time_four)==8] <- "eight"
 sd(acc_time_four$`5`, na.rm=T)
 sd(acc_time_four$`8`, na.rm=T)
+mean(acc_time_four$five, na.rm=T)
 
 
 #plot time X distance
@@ -435,6 +448,10 @@ plot_path_int
 
 #acc by run
 acc_run_int<-cast(int_data, participant ~ Int_All_Runs.thisN, mean, value  = "acc", na.rm=T)
+colnames(acc_run_int)[colnames(acc_run_int)==0] <- "one"
+colnames(acc_run_int)[colnames(acc_run_int)==1] <- "two"
+colnames(acc_run_int)[colnames(acc_run_int)==2] <- "three"
+colnames(acc_run_int)[colnames(acc_run_int)==3] <- "four"
 print(acc_run_int)
 colMeans(acc_run_int, na.rm=T)
 
@@ -510,6 +527,12 @@ plot_int_noInt
 acc_int_noint_run<-cast(int_data, participant ~ cond + Int_All_Runs.thisN, mean, value = "acc", na.rm=T, subset = (cond != "V1"))
 print(acc_int_noint_run)
 colMeans(acc_int_noint_run, na.rm=T)
+
+first_half_int<-(mean(acc_int_noint_run$Int_0) + mean(acc_int_noint_run$Int_1))/2
+first_half_noint<-(mean(acc_int_noint_run$No_Int_0) + mean(acc_int_noint_run$No_Int_1))/2
+
+second_half_int<-(mean(acc_int_noint_run$Int_2, na.rm=T) + mean(acc_int_noint_run$Int_3, na.rm=T))/2
+second_half_noint<-(mean(acc_int_noint_run$No_Int_2, na.rm=T) + mean(acc_int_noint_run$No_Int_3, na.rm=T))/2
 
 #plot
 int_noInt_run_plot<-cast(int_data, Int_All_Runs.thisN + cond ~ ., mean, value="acc", na.rm=T, subset= (cond != ""))
